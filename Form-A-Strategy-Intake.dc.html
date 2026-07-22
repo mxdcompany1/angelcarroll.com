@@ -76,7 +76,7 @@
             <option value="Speaking Event">Speaking Event</option>
             <option value="Other">Other</option>
           </select>
-          <input type="text" name="bot-field" value="{{ f.botField }}" onChange="{{ set.botField }}" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" tabIndex="-1" autoComplete="off">
+          <input type="text" name="bot-field" value="{{ f.botField }}" onChange="{{ set.botField }}" style="display:none" tabIndex="-1" autoComplete="off" aria-hidden="true">
           <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
             <p style="font-size:14px;color:#A34A3B;margin:0">Something went wrong sending this. Please email <a href="mailto:contact@angelcarroll.com" style="color:#A34A3B">contact@angelcarroll.com</a> directly.</p>
           </sc-if>
