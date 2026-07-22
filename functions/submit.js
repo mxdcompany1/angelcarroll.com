@@ -4,7 +4,9 @@
 
 const LISTS = {
   "strategy-discovery": process.env.CLICKUP_LIST_STRATEGY || "1000410000001074",
-  "event-booking":      process.env.CLICKUP_LIST_BOOKING  || "1000410000001877"
+  // Both forms file into the same list (Pipeline & Proposals, in The Nexus).
+  // Tasks stay distinguishable by name prefix and the per-form tag below.
+  "event-booking":      process.env.CLICKUP_LIST_BOOKING  || "1000410000001074"
 };
 
 // People to notify on every submission (ClickUp notifies each assignee).
