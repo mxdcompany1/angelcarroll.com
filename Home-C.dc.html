@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#FAF3E2">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FAF3E2"/>
+    <rect x="820" y="250" width="230" height="300" rx="115" fill="#CAF6FF"/>
+    <text x="150" y="360" font-family="Georgia,serif" font-style="italic" font-size="96" fill="#3B2E20">Angel</text>
+    <text x="150" y="470" font-family="Georgia,serif" font-style="italic" font-size="96" fill="#B19B84">Carroll</text>
+    <rect x="150" y="540" width="120" height="6" fill="#EAF083"/>
+  </svg>
+</template>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:#FAF3E2}
+  ::selection{background:#3B2E20;color:#FAF3E2}
+  a{color:#B19B84;text-decoration:none}
+  a:hover{color:#9B8168}
+  @keyframes cUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  @keyframes cMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="--paper:#FAF3E2;--paper2:#F3E7CB;--blush:#CAF6FF;--ink:#3B2E20;--muted:#837360;--wine:#B19B84;--wine2:#9B8168;--yellow:#EAF083;--frame:#CAF6FF;--line:#E4D8BE;font-family:'Jost',system-ui,sans-serif;color:var(--ink);background:var(--paper);width:100%;overflow-x:hidden;position:relative;font-weight:400">
+
+  <dc-import name="SiteNav" hint-size="100%,80px"></dc-import>
+
+  <!-- HERO -->
+  <section id="top" style="padding:clamp(48px,7vw,110px) clamp(20px,5vw,72px) clamp(56px,7vw,110px)">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,6vw,90px);align-items:center">
+      <div>
+        <div style="opacity:0;animation:cUp .9s .05s both;display:flex;align-items:center;gap:14px;margin-bottom:30px">
+          <span style="width:30px;height:1px;background:var(--wine)"></span>
+          <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted)">Strategist · Executive · Advocate</span>
+        </div>
+        <h1 style="opacity:0;animation:cUp .9s .18s both;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,7vw,96px);line-height:1.0;letter-spacing:-0.005em;margin:0 0 30px">She moves power,<br>and moves <span data-hl="yellow" style="font-style:italic;color:var(--wine)">culture</span>.</h1>
+        <p style="opacity:0;animation:cUp .9s .32s both;font-size:clamp(17px,1.35vw,20px);line-height:1.7;color:var(--muted);max-width:40ch;margin:0 0 40px;font-weight:300">Angel Carroll builds the systems, coalitions, and campaigns that move criminal justice policy at the intersection of power and culture.</p>
+        <div style="opacity:0;animation:cUp .9s .46s both;display:flex;flex-wrap:wrap;gap:14px">
+          <a href="Work-With-Me.dc.html" style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--paper);background:var(--ink);padding:16px 32px;border-radius:100px;transition:transform .3s,background .3s" style-hover="{{ wineHover }}">Work with Angel</a>
+          <a href="Work-With-Me.dc.html" style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--ink);background:transparent;padding:16px 32px;border-radius:100px;border:1px solid var(--line);transition:all .3s" style-hover="{{ ghostHover }}">Book Angel to speak</a>
+        </div>
+      </div>
+      <div style="position:relative;justify-self:center" data-reveal="">
+        <div style="position:relative;width:min(100%,420px);aspect-ratio:4/5;border-radius:210px 210px 14px 14px;overflow:hidden;background:var(--frame);box-shadow:0 30px 70px rgba(59,46,32,0.14)">
+          <img src="assets/angel-portrait.png" alt="Angel Carroll" style="width:100%;height:100%;object-fit:cover;object-position:50% 8%">
+        </div>
+        <div style="position:absolute;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);bottom:22px;left:-18px;background:rgba(251,248,242,0.92);border:1px solid var(--line);padding:12px 20px;border-radius:100px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--wine);font-weight:500">Founder, MXD Company</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONING -->
+  <section style="background:var(--paper2);padding:clamp(80px,12vw,160px) clamp(20px,5vw,72px)">
+    <div style="max-width:940px;margin:0 auto;text-align:center">
+      <span data-reveal="" style="display:block;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:var(--wine);margin-bottom:26px">Where power meets culture</span>
+      <p data-reveal="" style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(26px,3.6vw,46px);line-height:1.28;margin:0 0 38px;letter-spacing:-0.005em">Angel is equally credible in a courtroom, a campaign war room, and a comment section — bringing serious policy expertise with the cultural fluency to make it land. <span data-hl="blue" style="font-style:italic;color:var(--wine)">More than a decade turning lived experience into policy that holds.</span></p>
+      <a data-reveal="" href="About.dc.html" style="display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;color:var(--wine);border-bottom:1px solid var(--wine);padding-bottom:6px">Learn more about Angel <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- CHOOSE PATH -->
+  <section style="padding:clamp(80px,11vw,150px) clamp(20px,5vw,72px)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div data-reveal="" style="text-align:center;margin-bottom:clamp(44px,5vw,68px)">
+        <span style="display:block;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);margin-bottom:18px">Choose your path</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,5vw,66px);margin:0">How can Angel help?</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(24px,3vw,40px)">
+        <sc-for list="{{ cards }}" as="c" hint-placeholder-count="2">
+          <div data-reveal="" style="display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:clamp(32px,3.6vw,52px);transition:transform .4s,box-shadow .4s" style-hover="{{ cardHover }}">
+            <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:32px;color:var(--wine);line-height:1">{{ c.num }}</span>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(27px,2.8vw,36px);line-height:1.06;margin:16px 0 16px">{{ c.title }}</h3>
+            <p style="font-size:16px;line-height:1.65;color:var(--muted);margin:0 0 34px;flex:1;font-weight:300">{{ c.body }}</p>
+            <a href="{{ c.href }}" style="display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;color:var(--wine)">{{ c.cta }} <span aria-hidden="true">→</span></a>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY MARQUEE -->
+  <section style="background:var(--yellow);padding:clamp(40px,5vw,64px) 0;overflow:hidden">
+    <p style="text-align:center;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(64,48,30,0.72);margin:0 0 30px;padding:0 24px">Trusted in the rooms that matter</p>
+    <div style="display:flex;width:max-content;animation:cMarq 38s linear infinite">
+      <div style="display:flex">
+        <sc-for list="{{ credLoop }}" as="k" hint-placeholder-count="10">
+          <span style="display:inline-flex;align-items:center;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);color:var(--ink);padding:0 clamp(26px,3vw,46px);white-space:nowrap">{{ k.label }}<span style="color:rgba(64,48,30,0.42);margin-left:clamp(26px,3vw,46px);font-style:italic">/</span></span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE WORK -->
+  <section style="padding:clamp(80px,11vw,150px) clamp(20px,5vw,72px)">
+    <div style="max-width:1080px;margin:0 auto">
+      <h2 data-reveal="" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,5vw,66px);text-align:center;margin:0 0 clamp(44px,5vw,68px)">The work</h2>
+      <div style="border-top:1px solid var(--line)">
+        <sc-for list="{{ work }}" as="w" hint-placeholder-count="4">
+          <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(12px,3vw,52px);padding:clamp(28px,3.2vw,44px) 0;border-bottom:1px solid var(--line);align-items:baseline">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.6vw,34px);line-height:1.08;margin:0;display:flex;gap:16px;align-items:baseline"><span style="font-style:italic;font-size:0.7em;color:var(--wine)">{{ w.num }}</span>{{ w.title }}</h3>
+            <p style="font-size:16px;line-height:1.65;color:var(--muted);margin:0;font-weight:300">{{ w.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div data-reveal="" style="text-align:center;margin-top:clamp(40px,5vw,60px)">
+        <a href="About.dc.html" style="display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;color:var(--wine);border-bottom:1px solid var(--wine);padding-bottom:6px">See the full story <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRAMEWORK -->
+  <section style="background:var(--paper2);padding:clamp(80px,12vw,160px) clamp(20px,5vw,72px)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div data-reveal="" style="text-align:center;max-width:660px;margin:0 auto clamp(48px,5vw,76px)">
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:var(--wine)">HER STRATEGIC APPROACH</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,5vw,66px);line-height:1.02;margin:16px 0 20px">The method behind the work</h2>
+        <p style="font-size:clamp(17px,1.4vw,20px);line-height:1.65;color:var(--muted);margin:0;font-weight:300">Every campaign Angel builds runs on the same four principles.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(20px,2.4vw,32px)">
+        <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
+          <div data-reveal="" style="background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(28px,3vw,40px);text-align:center">
+            <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:var(--wine)">{{ p.num }}</span>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(22px,2.1vw,28px);margin:14px 0 12px">{{ p.title }}</h3>
+            <p style="font-size:15px;line-height:1.6;color:var(--muted);margin:0;font-weight:300">{{ p.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section style="padding:clamp(80px,11vw,150px) clamp(20px,5vw,72px)">
+    <div style="max-width:1080px;margin:0 auto">
+      <h2 data-reveal="" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.8vw,62px);text-align:center;margin:0 0 clamp(40px,5vw,60px)">Recognized for the work</h2>
+      <div style="border-top:1px solid var(--line)">
+        <sc-for list="{{ awards }}" as="a" hint-placeholder-count="4">
+          <div data-reveal="" style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:26px 0;border-bottom:1px solid var(--line)">
+            <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(21px,2.1vw,28px);line-height:1.15">{{ a.title }}</span>
+            <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-align:right;flex-shrink:0;max-width:46%">{{ a.org }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS -->
+  <section style="background:var(--blush);padding:clamp(64px,8vw,110px) clamp(20px,5vw,72px)">
+    <div data-reveal="" style="max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:36px">
+      <div style="flex:1 1 440px">
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:var(--wine)">Press &amp; Media</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,4.2vw,54px);line-height:1.02;margin:16px 0 16px">For press and producers</h2>
+        <p style="font-size:17px;line-height:1.65;color:var(--muted);margin:0;max-width:52ch;font-weight:300">Everything you need to feature Angel accurately — from an approved bio and headshots to speaking topics and audience data.</p>
+      </div>
+      <a href="Media-Partnerships.dc.html" style="flex-shrink:0;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--paper);background:var(--ink);padding:17px 34px;border-radius:100px;transition:transform .3s,background .3s" style-hover="{{ wineHover }}">Download the media kit</a>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="work-with" style="padding:clamp(90px,13vw,180px) clamp(20px,5vw,72px);text-align:center">
+    <div data-reveal="" style="max-width:820px;margin:0 auto">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(46px,7vw,100px);line-height:1;margin:0 0 24px">Let's build something that <span data-hl="yellow" style="font-style:italic;color:var(--wine)">lasts</span>.</h2>
+      <p style="font-size:clamp(17px,1.4vw,21px);line-height:1.6;color:var(--muted);margin:0 auto 44px;max-width:44ch;font-weight:300">Whether you need strategy, a speaker, or a partner — start here.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+        <a href="Work-With-Me.dc.html" style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--paper);background:var(--ink);padding:17px 36px;border-radius:100px;transition:transform .3s,background .3s" style-hover="{{ wineHover }}">Work with Angel</a>
+        <a href="Work-With-Me.dc.html" style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--ink);background:transparent;padding:17px 36px;border-radius:100px;border:1px solid var(--line);transition:all .3s" style-hover="{{ ghostHover }}">Book Angel to speak</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Alternating (current)&quot;,&quot;Sunwashed&quot;,&quot;Coastal&quot;,&quot;Highlighter&quot;],&quot;default&quot;:&quot;Highlighter&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Color&quot;}}">
+class Component extends DCLogic {
+  rootRef = React.createRef();
+
+  componentDidMount() { this.applyPalette(); this.wireReveals(); }
+  componentDidUpdate() { this.applyPalette(); }
+
+  applyPalette() {
+    const root = this.rootRef.current;
+    if (!root) return;
+    const BLUE = '#CAF6FF', YELLOW = '#EAF083', CREAM2 = '#F3E7CB';
+    // slots: paper2 = positioning/framework/footer blocks; blush = press block; frame = hero portrait; yellow = marquee
+    const schemes = {
+      'Alternating': { paper2: CREAM2,     blush: BLUE,      frame: BLUE,   marquee: YELLOW, hl: false },
+      'Sunwashed':   { paper2: '#F6F0C4',  blush: BLUE,      frame: BLUE,   marquee: YELLOW, hl: false },
+      'Coastal':     { paper2: '#E6F4F8',  blush: YELLOW,    frame: YELLOW, marquee: BLUE,   hl: false },
+      'Highlighter': { paper2: CREAM2,     blush: '#FBF6EC', frame: BLUE,   marquee: YELLOW, hl: true },
+    };
+    const key = (this.props.palette || 'Alternating').replace(/\s*\(current\)/, '');
+    const s = schemes[key] || schemes['Alternating'];
+    root.style.setProperty('--paper2', s.paper2);
+    root.style.setProperty('--blush', s.blush);
+    root.style.setProperty('--frame', s.frame);
+    root.style.setProperty('--yellow', s.marquee);
+    root.querySelectorAll('[data-hl]').forEach(el => {
+      if (s.hl) {
+        el.style.background = el.getAttribute('data-hl') === 'blue' ? BLUE : YELLOW;
+        el.style.color = '#3B2E20';
+        el.style.padding = '0.02em 0.16em';
+        el.style.borderRadius = '3px';
+        el.style.webkitBoxDecorationBreak = el.style.boxDecorationBreak = 'clone';
+      } else {
+        el.style.background = 'transparent';
+        el.style.color = 'var(--wine)';
+        el.style.padding = '';
+        el.style.borderRadius = '';
+      }
+    });
+  }
+
+  wireReveals() {
+    const els = [...document.querySelectorAll('[data-reveal]')].filter(el => !el.__revealed);
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; el.__revealed = true; });
+      return;
+    }
+    if (!this._io) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; this._io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    }
+    els.forEach(el => {
+      el.__revealed = true;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+      this._io.observe(el);
+    });
+  }
+
+  renderVals() {
+    return {
+      rootRef: this.rootRef,
+      year: new Date().getFullYear(),
+      pillHover: { background: '#3B2E20', color: '#FAF3E2' },
+      wineHover: { background: '#2C2116', transform: 'translateY(-2px)' },
+      ghostHover: { borderColor: '#3B2E20', background: 'rgba(59,46,32,0.05)' },
+      cardHover: { transform: 'translateY(-6px)', boxShadow: '0 26px 60px rgba(59,46,32,0.12)' },
+      navItems: [
+        { label: 'About', href: '#' },
+        { label: 'Consulting', href: '#' },
+        { label: 'Media & Partnerships', href: '#' },
+        { label: 'Work With Me', href: '#work-with' },
+      ],
+      cards: [
+        { num: '01', title: 'Strategy & consulting', body: 'Systems-informed strategy for government agencies, civic and political leaders, advocacy groups, and nonprofits. Policy depth, coalition building, and outcomes.', cta: 'Explore consulting', href: 'Consulting.dc.html' },
+        { num: '02', title: 'Speaking & partnerships', body: 'Keynotes, commentary, panels, and brand collaborations for producers, sponsors, PR firms, and event organizers.', cta: 'Explore speaking & media', href: 'Media-Partnerships.dc.html' },
+      ],
+      work: [
+        { num: '01', title: 'Strategic advisory & policy architecture', body: 'Program design and policy strategy with specialized depth in alternatives to incarceration and best practices for vulnerable populations.' },
+        { num: '02', title: 'Campaign & coalition organizing', body: 'Statewide campaigns and political consulting that build the coalition and move the vote.' },
+        { num: '03', title: 'Media & commentary', body: 'On-air analysis, short-form video, panel moderation, and event hosting that keep the work in front of the public.' },
+        { num: '04', title: 'Speaking & partnerships', body: 'Keynotes, testimony, and brand collaborations that reach the audiences who move culture.' },
+      ],
+      principles: [
+        { num: '01', title: 'Proximate Solutions', body: 'Center the people closest to the problem, and equity for everyone follows.' },
+        { num: '02', title: 'Radical Change', body: 'Aim past the symptom for the structure that produced it.' },
+        { num: '03', title: 'Democratized Knowledge', body: 'Share the blueprint. Build capacity instead of gatekeeping it.' },
+        { num: '04', title: 'Joy as Resistance', body: 'Choose joy on purpose, even on the hardest subjects.' },
+      ],
+      awards: [
+        { title: 'Activist of the Year', org: 'Texas Democratic Party' },
+        { title: 'Anne McAfee Award', org: 'Travis County Democratic Party' },
+        { title: 'Inaugural Boots on the Ground Award', org: 'YWCA Greater Austin' },
+        { title: 'Inaugural Founders Award', org: 'Austin Area Urban League' },
+      ],
+      credLoop: [
+        { label: 'Texas Supreme Court' }, { label: 'Court of Criminal Appeals' }, { label: 'ABC13 Houston' }, { label: 'This Week in Texas' }, { label: 'Judicial Commission on Mental Health' }, { label: 'Texas Democratic Party' }, { label: 'Natl. Assoc. of Black Journalists' },
+        { label: 'Texas Supreme Court' }, { label: 'Court of Criminal Appeals' }, { label: 'ABC13 Houston' }, { label: 'This Week in Texas' }, { label: 'Judicial Commission on Mental Health' }, { label: 'Texas Democratic Party' }, { label: 'Natl. Assoc. of Black Journalists' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

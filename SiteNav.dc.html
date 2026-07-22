@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+</helmet>
+<header style="--paper:#FAF3E2;--ink:#3B2E20;--line:#E4D8BE;--wine:#B19B84;font-family:'Jost',system-ui,sans-serif;position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px clamp(20px,5vw,72px);background:rgba(251,248,242,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)">
+  <a href="Home-C.dc.html" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;letter-spacing:0.01em;color:var(--ink);white-space:nowrap;text-decoration:none">Angel Carroll</a>
+  <nav style="display:flex;align-items:center;gap:clamp(18px,2.4vw,40px)">
+    <a href="About.dc.html" style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:400;color:var(--ink);text-decoration:none;opacity:{{ aboutOp }}">About</a>
+    <a href="Consulting.dc.html" style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:400;color:var(--ink);text-decoration:none;opacity:{{ consultingOp }}">Consulting</a>
+    <a href="Media-Partnerships.dc.html" style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:400;color:var(--ink);text-decoration:none;opacity:{{ mediaOp }}">Media &amp; Partnerships</a>
+    <a href="From-The-Desk.dc.html" style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:400;color:var(--ink);text-decoration:none;opacity:{{ deskOp }}">From the Desk</a>
+    <a href="Work-With-Me.dc.html" style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:var(--ink);border:1px solid var(--ink);padding:11px 22px;border-radius:100px;white-space:nowrap;text-decoration:none;transition:all .3s" style-hover="{{ pillHover }}">Work With Me</a>
+  </nav>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:80},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;about&quot;,&quot;consulting&quot;,&quot;media&quot;,&quot;desk&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const a = this.props.active || '';
+    return {
+      aboutOp: a === 'about' ? 1 : 0.62,
+      consultingOp: a === 'consulting' ? 1 : 0.62,
+      mediaOp: a === 'media' ? 1 : 0.62,
+      deskOp: a === 'desk' ? 1 : 0.62,
+      pillHover: { background: '#3B2E20', color: '#FAF3E2' },
+    };
+  }
+}
+</script>
+</body>
+</html>

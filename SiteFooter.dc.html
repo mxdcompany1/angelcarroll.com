@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+</helmet>
+<footer style="--paper2:#F3E7CB;--ink:#3B2E20;--muted:#837360;--line:#E4D8BE;--wine:#B19B84;font-family:'Jost',system-ui,sans-serif;color:var(--ink);background:var(--paper2);padding:clamp(56px,6vw,84px) clamp(20px,5vw,72px) 40px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line)">
+    <div style="flex:1 1 300px">
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;margin-bottom:14px">Angel Carroll</div>
+      <p style="font-size:15px;line-height:1.65;color:var(--muted);margin:0;max-width:34ch;font-weight:300">Strategy, speaking, and partnerships at the intersection of power and culture.</p>
+    </div>
+    <div style="display:flex;gap:clamp(40px,6vw,90px);flex-wrap:wrap">
+      <div>
+        <div style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--wine);font-weight:500;margin-bottom:18px">Explore</div>
+        <a href="About.dc.html" style="display:block;font-size:15px;color:var(--ink);margin-bottom:12px;text-decoration:none">About</a>
+        <a href="Consulting.dc.html" style="display:block;font-size:15px;color:var(--ink);margin-bottom:12px;text-decoration:none">Consulting</a>
+        <a href="Media-Partnerships.dc.html" style="display:block;font-size:15px;color:var(--ink);margin-bottom:12px;text-decoration:none">Media &amp; Partnerships</a>
+        <a href="From-The-Desk.dc.html" style="display:block;font-size:15px;color:var(--ink);margin-bottom:12px;text-decoration:none">From the Desk</a>
+        <a href="Work-With-Me.dc.html" style="display:block;font-size:15px;color:var(--ink);text-decoration:none">Work With Me</a>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--wine);font-weight:500;margin-bottom:18px">Contact</div>
+        <a href="tel:8326901517" style="display:block;font-size:15px;color:var(--ink);margin-bottom:12px;text-decoration:none">832-690-1517</a>
+        <a href="mailto:angel@mxdcompany.com" style="display:block;font-size:15px;color:var(--ink);margin-bottom:12px;text-decoration:none">angel@mxdcompany.com</a>
+        <a href="https://instagram.com/iangelcarroll" style="display:block;font-size:15px;color:var(--ink);text-decoration:none">@iangelcarroll</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--muted)">
+    <span>© {{ year }} Angel Carroll · MXD Company</span>
+    <span style="letter-spacing:0.06em">Houston · Austin, TX</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:320}}">
+class Component extends DCLogic {
+  renderVals() { return { year: new Date().getFullYear() }; }
+}
+</script>
+</body>
+</html>

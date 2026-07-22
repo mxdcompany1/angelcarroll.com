@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:#141310}
+  ::selection{background:#E0623C;color:#141310}
+  a{color:#E0623C;text-decoration:none}
+  a:hover{color:#EE7B54}
+  @keyframes bUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  @keyframes bMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</helmet>
+<div style="--ink:#141310;--ink2:#1C1A15;--ink3:#242118;--cream:#EFE9DC;--muted:#A29B8B;--coral:#E0623C;--coral2:#EE7B54;--line:rgba(239,233,220,0.14);font-family:'Newsreader',Georgia,serif;color:var(--cream);background:var(--ink);width:100%;overflow-x:hidden;position:relative">
+
+  <!-- HEADER -->
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px clamp(20px,5vw,64px);background:rgba(20,19,16,0.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)">
+    <a href="#top" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:21px;letter-spacing:-0.02em;color:var(--cream);white-space:nowrap">Angel Carroll<span style="color:var(--coral)">.</span></a>
+    <nav style="display:flex;align-items:center;gap:clamp(16px,2.2vw,36px)">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="4">
+        <a href="{{ item.href }}" style="font-family:'Bricolage Grotesque',sans-serif;font-size:13px;letter-spacing:0.02em;font-weight:500;color:var(--cream)">{{ item.label }}</a>
+      </sc-for>
+      <a href="#work-with" style="font-family:'Bricolage Grotesque',sans-serif;font-size:13px;letter-spacing:0.01em;font-weight:700;color:var(--ink);background:var(--coral);padding:11px 20px;white-space:nowrap;transition:background .3s" style-hover="{{ coralHover }}">Work with Angel</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" style="position:relative;padding:clamp(28px,4vw,56px) clamp(20px,5vw,64px) clamp(48px,6vw,90px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:clamp(30px,4vw,56px)">
+        <span style="opacity:0;animation:bUp .8s .05s both;font-family:'Bricolage Grotesque',sans-serif;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);font-weight:600">Strategist / Executive / Advocate</span>
+        <span style="opacity:0;animation:bUp .8s .12s both;font-family:'Bricolage Grotesque',sans-serif;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--coral);font-weight:600">Houston · Austin, TX</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(30px,4vw,64px);align-items:center">
+        <div>
+          <h1 style="opacity:0;animation:bUp .9s .16s both;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(48px,7vw,104px);line-height:0.92;letter-spacing:-0.03em;margin:0 0 30px">She moves <span style="color:var(--coral)">power</span>,<br/>and moves <span style="font-family:'Newsreader',serif;font-weight:400;font-style:italic;letter-spacing:0">culture</span>.</h1>
+          <p style="opacity:0;animation:bUp .9s .3s both;font-size:clamp(18px,1.5vw,22px);line-height:1.55;color:var(--muted);max-width:40ch;margin:0 0 38px">Angel Carroll builds the systems, coalitions, and campaigns that move criminal justice policy at the intersection of power and culture.</p>
+          <div style="opacity:0;animation:bUp .9s .44s both;display:flex;flex-wrap:wrap;gap:14px">
+            <a href="#work-with" style="font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:var(--ink);background:var(--coral);padding:16px 30px;transition:transform .3s,background .3s" style-hover="{{ coralHover }}">Work with Angel</a>
+            <a href="#work-with" style="font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:var(--cream);background:transparent;padding:16px 30px;border:1px solid var(--line);transition:all .3s" style-hover="{{ outlineHover }}">Book Angel to speak</a>
+          </div>
+        </div>
+        <div style="position:relative" data-reveal>
+          <div style="position:absolute;inset:0;transform:translate(16px,16px);border:1px solid var(--coral);pointer-events:none"></div>
+          <div style="position:relative;background:var(--ink2);overflow:hidden;aspect-ratio:4/5">
+            <img src="assets/angel-portrait.png" alt="Angel Carroll" style="width:100%;height:100%;object-fit:cover;object-position:50% 10%"/>
+            <div style="position:absolute;left:0;bottom:0;right:0;padding:16px 18px;background:linear-gradient(180deg,rgba(20,19,16,0) 0%,rgba(20,19,16,0.72) 100%);font-family:'Bricolage Grotesque',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream);font-weight:600">Founder — MXD Company</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONING -->
+  <section style="background:var(--ink2);padding:clamp(72px,11vw,150px) clamp(20px,5vw,64px);border-top:1px solid var(--line)">
+    <div style="max-width:1000px;margin:0 auto">
+      <span data-reveal style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:var(--coral);font-weight:600;margin-bottom:26px">Where power meets culture</span>
+      <p data-reveal style="font-size:clamp(24px,3.2vw,42px);line-height:1.28;font-weight:400;margin:0 0 34px;letter-spacing:-0.01em">Angel Carroll is equally credible in a courtroom, a campaign war room, and a comment section — <span style="color:var(--muted)">bringing serious political and policy expertise with the cultural fluency to make it land. More than a decade turning lived experience into policy that holds.</span></p>
+      <a data-reveal href="#" style="display:inline-flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;letter-spacing:0.04em;text-transform:uppercase;font-weight:600;color:var(--coral);border-bottom:1px solid var(--coral);padding-bottom:6px">Learn more about Angel <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- CHOOSE PATH -->
+  <section style="padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div data-reveal style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:16px;border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:clamp(36px,4vw,56px)">
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,60px);letter-spacing:-0.02em;margin:0">How can Angel help?</h2>
+        <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);font-weight:600">Choose your path</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)">
+        <sc-for list="{{ cards }}" as="c" hint-placeholder-count="2">
+          <div data-reveal style="display:flex;flex-direction:column;background:var(--ink);padding:clamp(30px,3.4vw,50px);transition:background .4s" style-hover="{{ pathHover }}">
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;color:var(--coral)">{{ c.num }}</span>
+            <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(25px,2.6vw,34px);line-height:1.06;letter-spacing:-0.01em;margin:16px 0 16px">{{ c.title }}</h3>
+            <p style="font-size:17px;line-height:1.55;color:var(--muted);margin:0 0 34px;flex:1">{{ c.body }}</p>
+            <a href="{{ c.href }}" style="display:inline-flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;letter-spacing:0.03em;text-transform:uppercase;font-weight:600;color:var(--coral)">{{ c.cta }} <span aria-hidden="true">→</span></a>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY MARQUEE -->
+  <section style="background:var(--ink2);padding:clamp(40px,5vw,64px) 0;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <p style="text-align:center;font-family:'Bricolage Grotesque',sans-serif;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 30px;padding:0 24px">Trusted in the rooms that matter</p>
+    <div style="display:flex;width:max-content;animation:bMarq 36s linear infinite">
+      <div style="display:flex">
+        <sc-for list="{{ credLoop }}" as="k" hint-placeholder-count="10">
+          <span style="display:inline-flex;align-items:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(18px,1.8vw,26px);letter-spacing:-0.01em;color:var(--cream);padding:0 clamp(26px,3vw,44px);white-space:nowrap">{{ k.label }}<span style="color:var(--coral);margin-left:clamp(26px,3vw,44px)">/</span></span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE WORK -->
+  <section style="padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <h2 data-reveal style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,60px);letter-spacing:-0.02em;margin:0 0 clamp(36px,4vw,56px)">The work</h2>
+      <div style="border-top:1px solid var(--line)">
+        <sc-for list="{{ work }}" as="w" hint-placeholder-count="4">
+          <div data-reveal style="display:grid;grid-template-columns:64px 1fr;gap:clamp(16px,3vw,48px);padding:clamp(26px,3vw,40px) 0;border-bottom:1px solid var(--line);align-items:start">
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;color:var(--coral)">{{ w.num }}</span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(12px,3vw,48px);align-items:baseline">
+              <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(23px,2.3vw,32px);line-height:1.08;letter-spacing:-0.01em;margin:0">{{ w.title }}</h3>
+              <p style="font-size:17px;line-height:1.55;color:var(--muted);margin:0">{{ w.body }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <a data-reveal href="#" style="display:inline-flex;margin-top:clamp(34px,4vw,52px);align-items:center;gap:10px;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;letter-spacing:0.04em;text-transform:uppercase;font-weight:600;color:var(--coral);border-bottom:1px solid var(--coral);padding-bottom:6px">See the full story <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- FRAMEWORK -->
+  <section style="background:var(--ink2);padding:clamp(72px,11vw,150px) clamp(20px,5vw,64px);border-top:1px solid var(--line)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div data-reveal style="max-width:660px;margin-bottom:clamp(44px,5vw,72px)">
+        <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:var(--coral);font-weight:600">The Framework</span>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,60px);letter-spacing:-0.02em;line-height:1;margin:18px 0 20px">A blueprint, not a brand</h2>
+        <p style="font-size:clamp(18px,1.4vw,21px);line-height:1.55;color:var(--muted);margin:0">Every campaign Angel builds runs on the same four principles.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)">
+        <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
+          <div data-reveal style="background:var(--ink2);padding:clamp(28px,3vw,42px)">
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;color:var(--coral)">{{ p.num }}</span>
+            <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(21px,2vw,27px);letter-spacing:-0.01em;margin:16px 0 12px">{{ p.title }}</h3>
+            <p style="font-size:16px;line-height:1.5;color:var(--muted);margin:0">{{ p.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section style="padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div data-reveal style="display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(28px,3vw,44px)">
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(32px,4.4vw,58px);letter-spacing:-0.02em;margin:0">Recognized for the work</h2>
+      </div>
+      <div style="border-top:1px solid var(--line)">
+        <sc-for list="{{ awards }}" as="a" hint-placeholder-count="4">
+          <div data-reveal style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)">
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(20px,2vw,27px);letter-spacing:-0.01em">{{ a.title }}</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted);text-align:right;flex-shrink:0;max-width:46%">{{ a.org }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS -->
+  <section style="background:var(--ink2);padding:clamp(64px,8vw,110px) clamp(20px,5vw,64px);border-top:1px solid var(--line)">
+    <div data-reveal style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:36px">
+      <div style="flex:1 1 440px">
+        <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:var(--coral);font-weight:600">Press &amp; Media</span>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(30px,4vw,50px);letter-spacing:-0.02em;line-height:1.02;margin:16px 0 16px">For press and producers</h2>
+        <p style="font-size:18px;line-height:1.55;color:var(--muted);margin:0;max-width:52ch">Everything you need to feature Angel accurately — from an approved bio and headshots to speaking topics and audience data.</p>
+      </div>
+      <a href="#" style="flex-shrink:0;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:var(--ink);background:var(--coral);padding:18px 34px;transition:transform .3s,background .3s" style-hover="{{ coralHover }}">Download the media kit</a>
+    </div>
+  </section>
+
+  <!-- FINAL CTA (coral block) -->
+  <section id="work-with" style="background:var(--coral);color:var(--ink);padding:clamp(84px,12vw,170px) clamp(20px,5vw,64px);text-align:center">
+    <div data-reveal style="max-width:900px;margin:0 auto">
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(44px,6.4vw,96px);letter-spacing:-0.03em;line-height:0.94;margin:0 0 24px">Let's build something that lasts.</h2>
+      <p style="font-size:clamp(18px,1.5vw,22px);line-height:1.5;color:rgba(20,19,16,0.82);margin:0 auto 42px;max-width:46ch">Whether you need strategy, a speaker, or a partner — start here.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+        <a href="#" style="font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:var(--cream);background:var(--ink);padding:17px 34px;transition:transform .3s" style-hover="{{ liftHover }}">Work with Angel</a>
+        <a href="#" style="font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:var(--ink);background:transparent;padding:17px 34px;border:1px solid var(--ink);transition:all .3s" style-hover="{{ darkOutlineHover }}">Book Angel to speak</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--ink);padding:clamp(52px,6vw,80px) clamp(20px,5vw,64px) 40px">
+    <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line)">
+      <div style="flex:1 1 300px">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-0.02em;margin-bottom:14px">Angel Carroll<span style="color:var(--coral)">.</span></div>
+        <p style="font-size:16px;line-height:1.55;color:var(--muted);margin:0;max-width:34ch">Strategy, speaking, and partnerships at the intersection of power and culture.</p>
+      </div>
+      <div style="display:flex;gap:clamp(40px,6vw,90px);flex-wrap:wrap">
+        <div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--coral);font-weight:700;margin-bottom:18px">Explore</div>
+          <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="4">
+            <a href="{{ item.href }}" style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:15px;color:var(--cream);margin-bottom:12px">{{ item.label }}</a>
+          </sc-for>
+        </div>
+        <div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--coral);font-weight:700;margin-bottom:18px">Contact</div>
+          <a href="tel:8326901517" style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:15px;color:var(--cream);margin-bottom:12px">832-690-1517</a>
+          <a href="mailto:angel@mxdcompany.com" style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:15px;color:var(--cream);margin-bottom:12px">angel@mxdcompany.com</a>
+          <a href="https://instagram.com/iangelcarroll" style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:15px;color:var(--cream)">@iangelcarroll</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1240px;margin:0 auto;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:'Bricolage Grotesque',sans-serif;font-size:13px;color:var(--muted)">
+      <span>© {{ year }} Angel Carroll · MXD Company</span>
+      <span style="letter-spacing:0.04em">Houston · Austin, TX</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { this.wireReveals(); }
+
+  wireReveals() {
+    const els = [...document.querySelectorAll('[data-reveal]')].filter(el => !el.__revealed);
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; el.__revealed = true; });
+      return;
+    }
+    if (!this._io) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; this._io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    }
+    els.forEach(el => {
+      el.__revealed = true;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+      this._io.observe(el);
+    });
+  }
+
+  renderVals() {
+    return {
+      year: new Date().getFullYear(),
+      coralHover: { background: '#EE7B54', transform: 'translateY(-2px)' },
+      outlineHover: { background: 'rgba(239,233,220,0.08)', borderColor: '#EFE9DC' },
+      pathHover: { background: '#1C1A15' },
+      liftHover: { transform: 'translateY(-2px)' },
+      darkOutlineHover: { background: 'rgba(20,19,16,0.12)' },
+      navItems: [
+        { label: 'About', href: '#' },
+        { label: 'Consulting', href: '#' },
+        { label: 'Media & Partnerships', href: '#' },
+        { label: 'Work With Me', href: '#work-with' },
+      ],
+      cards: [
+        { num: '01', title: 'Strategy & consulting', body: 'Systems-informed strategy for government agencies, civic and political leaders, advocacy groups, and nonprofits. Policy depth, coalition building, and outcomes.', cta: 'Explore consulting', href: '#' },
+        { num: '02', title: 'Speaking & partnerships', body: 'Keynotes, commentary, panels, and brand collaborations for producers, sponsors, PR firms, and event organizers.', cta: 'Explore speaking & media', href: '#' },
+      ],
+      work: [
+        { num: '01', title: 'Strategic advisory & policy architecture', body: 'Program design and policy strategy with specialized depth in alternatives to incarceration and best practices for vulnerable populations.' },
+        { num: '02', title: 'Campaign & coalition organizing', body: 'Statewide campaigns and political consulting that build the coalition and move the vote.' },
+        { num: '03', title: 'Media & commentary', body: 'On-air analysis, short-form video, panel moderation, and event hosting that keep the work in front of the public.' },
+        { num: '04', title: 'Speaking & partnerships', body: 'Keynotes, testimony, and brand collaborations that reach the audiences who move culture.' },
+      ],
+      principles: [
+        { num: '01', title: 'Proximate Solutions', body: 'Center the people closest to the problem, and equity for everyone follows.' },
+        { num: '02', title: 'Radical Change', body: 'Aim past the symptom for the structure that produced it.' },
+        { num: '03', title: 'Democratized Knowledge', body: 'Share the blueprint. Build capacity instead of gatekeeping it.' },
+        { num: '04', title: 'Joy as Resistance', body: 'Choose joy on purpose, even on the hardest subjects.' },
+      ],
+      awards: [
+        { title: 'Activist of the Year', org: 'Texas Democratic Party' },
+        { title: 'Anne McAfee Award', org: 'Travis County Democratic Party' },
+        { title: 'Inaugural Boots on the Ground Award', org: 'YWCA Greater Austin' },
+        { title: 'Inaugural Founders Award', org: 'Austin Area Urban League' },
+      ],
+      credLoop: [
+        { label: 'Texas Supreme Court' }, { label: 'Court of Criminal Appeals' }, { label: 'ABC13 Houston' }, { label: 'This Week in Texas' }, { label: 'Judicial Commission on Mental Health' }, { label: 'Texas Democratic Party' }, { label: 'Natl. Assoc. of Black Journalists' },
+        { label: 'Texas Supreme Court' }, { label: 'Court of Criminal Appeals' }, { label: 'ABC13 Houston' }, { label: 'This Week in Texas' }, { label: 'Judicial Commission on Mental Health' }, { label: 'Texas Democratic Party' }, { label: 'Natl. Assoc. of Black Journalists' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

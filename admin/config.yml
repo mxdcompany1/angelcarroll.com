@@ -1,0 +1,34 @@
+# From the Desk — CMS configuration for Decap
+# Static site on Netlify. Non-technical publishing, invite-only, with draft review.
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Draft -> In review -> Published, so posts can be reviewed before going live.
+publish_mode: editorial_workflow
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "From the Desk"
+    files:
+      - name: "posts"
+        label: "Blog Posts"
+        file: "posts.json"
+        description: "Each entry becomes one card on the From the Desk page. Newest publishes first."
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Category", name: "category", widget: "select", options: ["Op-Ed", "Feature", "Commentary", "Interview"] }
+              - { label: "Source / Outlet", name: "source", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Link (URL to the piece)", name: "link", widget: "string" }
+              - { label: "Cover Image", name: "cover", widget: "image", required: false, hint: "Optional. If left empty, a branded placeholder is shown." }

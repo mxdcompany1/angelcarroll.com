@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:#FAF3E2}
+  ::selection{background:#3B2E20;color:#FAF3E2}
+  @keyframes cUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  /* BRAND TOKENS — recolor the whole page here */
+  #ftd{
+    --cream:#FAF3E2;   /* page background */
+    --card:#FDF8EC;    /* card background */
+    --ink:#3B2E20;     /* text (espresso) */
+    --taupe:#9B8168;   /* muted text */
+    --line:#CDB88E;    /* hairlines / rules */
+    --accent:#C25A46;  /* primary accent (coral) */
+    --accent-2:#EAF083;/* chartreuse */
+    --accent-3:#CAF6FF;/* pale blue */
+  }
+  [data-card]:hover [data-cover] img{transform:scale(1.04)}
+  [data-card]:hover [data-more]{color:#C25A46;border-color:#C25A46}
+</style>
+</helmet>
+<!-- BRAND TOKENS (recolor the whole page here): cream #FAF3E2 bg, card #FDF8EC, ink #3B2E20, taupe #9B8168, line #CDB88E, accent #C25A46 coral, accent-2 #EAF083 chartreuse, accent-3 #CAF6FF blue -->
+<div id="ftd" style="font-family:'Jost',system-ui,sans-serif;color:var(--ink);background:var(--cream);width:100%;overflow-x:hidden;font-weight:400">
+
+  <dc-import name="SiteNav" active="desk" hint-size="100%,80px"></dc-import>
+
+  <!-- MASTHEAD -->
+  <section style="padding:clamp(48px,7vw,100px) clamp(20px,5vw,72px) clamp(28px,4vw,48px);text-align:center;border-bottom:1px solid var(--line)">
+    <div style="max-width:880px;margin:0 auto">
+      <div style="opacity:0;animation:cUp .8s .05s both;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px">Angel Carroll</div>
+      <h1 style="opacity:0;animation:cUp .8s .14s both;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(52px,9vw,120px);line-height:0.98;letter-spacing:-0.01em;margin:0 0 20px">From the Desk</h1>
+      <div style="opacity:0;animation:cUp .8s .24s both;font-size:13px;letter-spacing:0.34em;text-transform:uppercase;color:var(--ink);margin-bottom:26px">Politics · Culture · Radical Joy</div>
+      <p style="opacity:0;animation:cUp .8s .32s both;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(19px,2.2vw,26px);line-height:1.5;color:var(--taupe);max-width:44ch;margin:0 auto 26px">Op-eds, features, and commentary from the rooms where policy gets made.</p>
+      <span style="opacity:0;animation:cUp .8s .4s both;display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:var(--ink);border:1px solid var(--line);border-radius:100px;padding:9px 18px">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--accent)"></span>Member · National Association of Black Journalists
+      </span>
+    </div>
+  </section>
+
+  <!-- FILTER PILLS -->
+  <section style="padding:clamp(28px,3.5vw,44px) clamp(20px,5vw,72px) clamp(20px,2.5vw,30px)">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+      <sc-for list="{{ pills }}" as="p" hint-placeholder-count="5">
+        <button onClick="{{ p.onClick }}" style="{{ p.style }}">{{ p.label }}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- RULED GRID -->
+  <section style="padding:clamp(8px,1.5vw,20px) clamp(20px,5vw,72px) clamp(72px,9vw,120px)">
+    <div style="max-width:1180px;margin:0 auto;border-top:1px solid var(--line);border-left:1px solid var(--line);display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">
+      <sc-for list="{{ posts }}" as="post" hint-placeholder-count="3">
+        <a data-card="" href="{{ post.link }}" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream);padding:clamp(20px,2vw,28px);transition:background .3s" style-hover="{{ cardHover }}">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px">
+            <span style="font-size:12px;letter-spacing:0.08em;color:var(--taupe)">{{ post.prettyDate }}</span>
+            <span style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;color:var(--ink);border:1px solid var(--line);border-radius:100px;padding:5px 12px">{{ post.category }}</span>
+          </div>
+          <div data-cover="" style="position:relative;aspect-ratio:4/3;overflow:hidden;margin-bottom:18px;background:var(--ink)">{{ post.coverNode }}</div>
+          <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;color:var(--accent);margin-bottom:10px">{{ post.source }}</div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.4vw,32px);line-height:1.1;margin:0 0 12px">{{ post.title }}</h2>
+          <p style="font-size:15px;line-height:1.6;color:var(--taupe);margin:0 0 20px;flex:1;font-weight:300">{{ post.description }}</p>
+          <span data-more="" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px;align-self:flex-start;transition:color .25s,border-color .25s">Read more</span>
+        </a>
+      </sc-for>
+    </div>
+    <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:1180px;margin:0 auto;text-align:center;padding:64px 20px;color:var(--taupe);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px">Nothing filed under that category yet.</div>
+    </sc-if>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  // Inline fallback so the page renders when opened locally as a file://.
+  FALLBACK = [
+    { title: "Black History Month Editorial Op-Ed", date: "2026-02-05", category: "Op-Ed", source: "Career News", description: "On legacy, power, and building the next chapter of Black political leadership in Texas.", link: "#", cover: "" },
+    { title: "Electability in Texas", date: "2026-01-18", category: "Op-Ed", source: "Courier Texas", description: "Why the electability question gets Texas wrong, and what organizers see that pundits miss.", link: "#", cover: "" },
+    { title: "Cultural Relevance in Modern Digital Organizing", date: "2025-08-22", category: "Feature", source: "National Convention", description: "A media feature on meeting voters where they are and turning culture into civic power.", link: "#", cover: "" },
+  ];
+  state = { all: this.FALLBACK, filter: 'All' };
+
+  componentDidMount() {
+    fetch('posts.json')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(d => { const list = Array.isArray(d) ? d : (d.posts || []); if (list.length) this.setState({ all: list }); })
+      .catch(() => {});
+  }
+
+  prettyDate(iso) {
+    const p = String(iso || '').split('-');
+    if (p.length !== 3) return iso || '';
+    const m = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    return `${m[+p[1] - 1]} ${+p[2]}, ${p[0]}`;
+  }
+  placeholderBg() {
+    return 'linear-gradient(135deg,#4A3A28 0%,#3B2E20 55%,#5C2B2E 100%)';
+  }
+
+  renderVals() {
+    const all = [...this.state.all].sort((a, b) => String(b.date).localeCompare(String(a.date)));
+    const cats = ['All', ...Array.from(new Set(all.map(p => p.category).filter(Boolean)))];
+    const filter = this.state.filter;
+    const filtered = filter === 'All' ? all : all.filter(p => p.category === filter);
+
+    const pillBase = "font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;padding:10px 22px;border-radius:100px;cursor:pointer;transition:all .25s;border:1px solid var(--line);";
+    const pills = cats.map(c => ({
+      label: c,
+      onClick: () => this.setState({ filter: c }),
+      style: pillBase + (c === filter
+        ? 'background:var(--ink);color:var(--cream);border-color:var(--ink);'
+        : 'background:transparent;color:var(--ink);'),
+    }));
+
+    const posts = filtered.map(p => {
+      const hasCover = !!(p.cover && p.cover.trim());
+      const coverNode = hasCover
+        ? React.createElement('img', { src: p.cover, alt: p.title, style: { width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform .35s ease' } })
+        : React.createElement('div', { style: { width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '24px', background: this.placeholderBg() } },
+            React.createElement('span', { style: { fontFamily: "'Cormorant Garamond',serif", fontStyle: 'italic', fontSize: 'clamp(20px,2.4vw,30px)', color: 'var(--cream)', lineHeight: 1.1 } }, p.source));
+      return { ...p, prettyDate: this.prettyDate(p.date), coverNode };
+    });
+
+    return {
+      pills,
+      posts,
+      isEmpty: posts.length === 0,
+      cardHover: { background: '#FDF8EC' },
+    };
+  }
+}
+</script>
+</body>
+</html>

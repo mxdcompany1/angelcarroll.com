@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:#FAF3E2}
+  ::selection{background:#3B2E20;color:#FAF3E2}
+  @keyframes cUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  .acField{width:100%;font-family:'Jost',sans-serif;font-size:16px;color:#3B2E20;background:#FAF3E2;border:1px solid #E4D8BE;border-radius:12px;padding:14px 16px;outline:none;transition:border-color .25s;font-weight:300}
+  .acField:focus{border-color:#B19B84}
+  .acField::placeholder{color:#A8977F}
+  textarea.acField{resize:vertical;min-height:130px}
+  select.acField{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%23837360' fill='none' stroke-width='1.6'/></svg>");background-repeat:no-repeat;background-position:right 16px center}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="--paper:#FAF3E2;--paper2:#F3E7CB;--ink:#3B2E20;--muted:#837360;--wine:#B19B84;--line:#E4D8BE;font-family:'Jost',system-ui,sans-serif;color:var(--ink);background:var(--paper);width:100%;overflow-x:hidden;font-weight:400">
+
+  <dc-import name="SiteNav" active="consulting" hint-size="100%,80px"></dc-import>
+
+  <section style="padding:clamp(56px,8vw,110px) clamp(20px,5vw,72px) clamp(40px,5vw,60px)">
+    <div style="max-width:760px;margin:0 auto;text-align:center">
+      <div style="opacity:0;animation:cUp .9s .05s both;display:inline-flex;align-items:center;gap:14px;margin-bottom:26px">
+        <span style="width:30px;height:1px;background:var(--wine)"></span>
+        <span style="font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted)">Strategy &amp; Discovery</span>
+        <span style="width:30px;height:1px;background:var(--wine)"></span>
+      </div>
+      <h1 style="opacity:0;animation:cUp .9s .16s both;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,5.6vw,68px);line-height:1.04;margin:0 0 22px">Let's start the <span style="font-style:italic;color:var(--wine)">conversation</span>.</h1>
+      <p style="opacity:0;animation:cUp .9s .3s both;font-size:17px;line-height:1.7;color:var(--muted);max-width:52ch;margin:0 auto;font-weight:300">For government agencies, civic and political leaders, advocacy groups, and nonprofits ready to talk strategy. This routes directly to Angel's consulting pipeline.</p>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,72px) clamp(90px,11vw,140px)">
+    <div data-reveal="" style="max-width:680px;margin:0 auto;background:var(--paper2);border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,52px)">
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;padding:clamp(30px,5vw,60px) 0">
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:52px;color:var(--wine);margin-bottom:12px">Thank you.</div>
+          <p style="font-size:16px;line-height:1.65;color:var(--muted);margin:0;font-weight:300">Angel's team has your submission and will follow up within a few business days.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+            <input class="acField" type="text" placeholder="First &amp; last name *" value="{{ f.name }}" onChange="{{ set.name }}" required="required">
+            <input class="acField" type="email" placeholder="Email address *" value="{{ f.email }}" onChange="{{ set.email }}" required="required">
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+            <input class="acField" type="tel" placeholder="Phone number *" value="{{ f.phone }}" onChange="{{ set.phone }}" required="required">
+            <input class="acField" type="text" placeholder="Organization / company name *" value="{{ f.org }}" onChange="{{ set.org }}" required="required">
+          </div>
+          <select class="acField" value="{{ f.showingUp }}" onChange="{{ set.showingUp }}" required="required">
+            <option value="">How are you showing up? *</option>
+            <option value="Nonprofit Leader">Nonprofit Leader</option>
+            <option value="Small Business Owner">Small Business Owner</option>
+            <option value="Political Organization or Candidate">Political Organization or Candidate</option>
+            <option value="Other">Other</option>
+          </select>
+          <textarea class="acField" placeholder="Tell me about your structural or project needs *" value="{{ f.needs }}" onChange="{{ set.needs }}" required="required"></textarea>
+          <select class="acField" value="{{ f.source }}" onChange="{{ set.source }}" required="required">
+            <option value="">How did you find me? *</option>
+            <option value="Instagram">Instagram</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Google">Google</option>
+            <option value="Referral">Referral</option>
+            <option value="Podcast/Media">Podcast/Media</option>
+            <option value="Speaking Event">Speaking Event</option>
+            <option value="Other">Other</option>
+          </select>
+          <input type="text" name="bot-field" value="{{ f.botField }}" onChange="{{ set.botField }}" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" tabIndex="-1" autoComplete="off">
+          <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+            <p style="font-size:14px;color:#A34A3B;margin:0">Something went wrong sending this. Please email <a href="mailto:contact@angelcarroll.com" style="color:#A34A3B">contact@angelcarroll.com</a> directly.</p>
+          </sc-if>
+          <button type="submit" disabled="{{ sending }}" style="margin-top:6px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--paper);background:var(--ink);padding:16px 32px;border:none;border-radius:100px;cursor:pointer;transition:background .3s;opacity:{{ btnOpacity }}" style-hover="{{ btnHover }}">{{ btnLabel }}</button>
+        </form>
+      </sc-if>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  state = { name:'', email:'', phone:'', org:'', showingUp:'', needs:'', source:'', botField:'', sent:false, sending:false, error:false };
+  componentDidMount() { this.wireReveals(); }
+  wireReveals() {
+    const els = [...document.querySelectorAll('[data-reveal]')].filter(el => !el.__revealed);
+    if (!('IntersectionObserver' in window)) { els.forEach(el => { el.style.opacity='1'; el.style.transform='none'; el.__revealed=true; }); return; }
+    if (!this._io) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='none'; this._io.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    }
+    els.forEach(el => {
+      el.__revealed = true;
+      el.style.opacity='0'; el.style.transform='translateY(26px)';
+      el.style.transition='opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+      this._io.observe(el);
+    });
+  }
+  renderVals() {
+    const s = this.state;
+    const upd = (k) => (e) => this.setState({ [k]: e.target.value });
+    return {
+      rootRef: this.rootRef,
+      sent: s.sent, notSent: !s.sent,
+      error: s.error,
+      sending: s.sending,
+      btnLabel: s.sending ? 'Sending…' : "Send to Angel's team",
+      btnOpacity: s.sending ? 0.6 : 1,
+      f: s,
+      set: { name: upd('name'), email: upd('email'), phone: upd('phone'), org: upd('org'), showingUp: upd('showingUp'), needs: upd('needs'), source: upd('source'), botField: upd('botField') },
+      onSubmit: async (e) => {
+        e.preventDefault();
+        if (s.botField) { this.setState({ sent: true }); return; }
+        this.setState({ sending: true, error: false });
+        try {
+          const res = await fetch('/.netlify/functions/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              form: 'strategy-discovery',
+              fields: {
+                name: s.name, email: s.email, phone: s.phone, organization: s.org,
+                how_showing_up: s.showingUp, project_needs: s.needs, how_found: s.source,
+                portal_source: 'Website — Strategy Intake', 'bot-field': s.botField,
+              },
+              file: null,
+            }),
+          });
+          if (!res.ok) throw new Error('submit failed');
+          this.setState({ sent: true, sending: false });
+        } catch (err) {
+          this.setState({ sending: false, error: true });
+        }
+      },
+      btnHover: { background: '#2C2116' },
+    };
+  }
+}
+
+</script>
+</body>
+</html>
