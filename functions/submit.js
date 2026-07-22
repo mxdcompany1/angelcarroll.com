@@ -22,7 +22,7 @@ const LABELS = {
   event_date:"Event date", start_time:"Start time", end_time:"End time",
   budget:"Talent budget", other_talent:"Other confirmed / unconfirmed talent",
   logistics:"Additional logistics", affirmation:"Corporate Responsibility Affirmation",
-  portal_source:"Source"
+  interest:"Interested in", portal_source:"Source"
 };
 
 function resp(status, obj){

@@ -102,7 +102,10 @@
               <option value="other">Something else</option>
             </select>
             <textarea class="acField" placeholder="Tell Angel a little about the work, timeline, and audience." value="{{ fMsg }}" onChange="{{ setMsg }}" required="required"></textarea>
-            <button type="submit" style="margin-top:6px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--paper);background:var(--ink);padding:16px 32px;border:none;border-radius:100px;cursor:pointer;transition:background .3s" style-hover="{{ btnHover }}">Send to Angel</button>
+            <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+              <p style="font-size:14px;color:#A34A3B;margin:0">Something went wrong sending this. Please email <a href="mailto:contact@angelcarroll.com" style="color:#A34A3B">contact@angelcarroll.com</a> directly.</p>
+            </sc-if>
+            <button type="submit" style="margin-top:6px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--paper);background:var(--ink);padding:16px 32px;border:none;border-radius:100px;cursor:pointer;transition:background .3s" style-hover="{{ btnHover }}">{{ btnLabel }}</button>
           </form>
         </sc-if>
       </div>
@@ -130,7 +133,7 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   rootRef = React.createRef();
-  state = { name: '', email: '', org: '', interest: '', msg: '', sent: false };
+  state = { name: '', email: '', org: '', interest: '', msg: '', sent: false, sending: false, error: false };
   componentDidMount() { this.wireReveals(); }
   wireReveals() {
     const els = [...document.querySelectorAll('[data-reveal]')].filter(el => !el.__revealed);
@@ -161,7 +164,32 @@ class Component extends DCLogic {
       setOrg: (e) => this.setState({ org: e.target.value }),
       setInterest: (e) => this.setState({ interest: e.target.value }),
       setMsg: (e) => this.setState({ msg: e.target.value }),
-      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      error: this.state.error,
+      btnLabel: this.state.sending ? 'Sending…' : 'Send to Angel',
+      onSubmit: async (e) => {
+        e.preventDefault();
+        const s = this.state;
+        this.setState({ sending: true, error: false });
+        try {
+          const res = await fetch('/.netlify/functions/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              form: 'strategy-discovery',
+              fields: {
+                name: s.name, email: s.email, organization: s.org,
+                interest: s.interest, project_needs: s.msg,
+                portal_source: 'Website — Work With Me',
+              },
+              file: null,
+            }),
+          });
+          if (!res.ok) throw new Error('submit failed');
+          this.setState({ sent: true, sending: false });
+        } catch (err) {
+          this.setState({ sending: false, error: true });
+        }
+      },
       btnHover: { background: '#2C2116' },
       paths: [
         { num: '01', title: 'Strategy & consulting', body: 'For agencies, civic and political leaders, advocacy groups, and nonprofits who need a plan that holds.', cta: 'See consulting', href: 'Consulting.dc.html' },
