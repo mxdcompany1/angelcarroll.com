@@ -8,7 +8,7 @@ const LISTS = {
 };
 
 // People to notify on every submission (ClickUp notifies each assignee).
-const NOTIFY = (process.env.CLICKUP_NOTIFY || "88259600,38169568")
+const NOTIFY = (process.env.CLICKUP_NOTIFY || "38169568")
   .split(",").map(s => parseInt(s.trim(), 10)).filter(Boolean);
 
 const LABELS = {
