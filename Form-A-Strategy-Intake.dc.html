@@ -124,7 +124,6 @@ class Component extends DCLogic {
       set: { name: upd('name'), email: upd('email'), phone: upd('phone'), org: upd('org'), showingUp: upd('showingUp'), needs: upd('needs'), source: upd('source'), botField: upd('botField') },
       onSubmit: async (e) => {
         e.preventDefault();
-        if (s.botField) { this.setState({ sent: true }); return; }
         this.setState({ sending: true, error: false });
         try {
           const res = await fetch('/.netlify/functions/submit', {

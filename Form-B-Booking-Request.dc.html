@@ -178,7 +178,6 @@ class Component extends DCLogic {
       btnOpacity: s.sending ? 0.6 : 1,
       onSubmit: async (e) => {
         e.preventDefault();
-        if (s.botField) { this.setState({ sent: true }); return; }
         this.setState({ sending: true, error: false });
         try {
           let filePayload = null;
