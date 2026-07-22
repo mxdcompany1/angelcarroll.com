@@ -30,13 +30,11 @@ function resp(status, obj){
 }
 
 function buildTask(form, f){
-  // DIAGNOSTIC (temporary): include bot-field in the body so we can see whether
-  // autofill is filling the honeypot. Restore skip of "bot-field" before done.
-  const skip = { "form-name":1 };
+  const skip = { "bot-field":1, "form-name":1 };
   const lines = Object.keys(f)
     .filter(k => !skip[k] && f[k] !== "" && f[k] != null)
     .map(k => `**${LABELS[k] || k}:** ${f[k]}`);
-  const description = "**[DIAGNOSTIC BUILD]** honeypot bypassed for testing\n\n" + lines.join("\n\n");
+  const description = lines.join("\n\n");
   let name;
   if(form === "strategy-discovery"){
     name = `Strategy inquiry — ${f.name || "New"}${f.organization ? " (" + f.organization + ")" : ""}`;
@@ -59,9 +57,7 @@ exports.handler = async (event) => {
   if (!listId) return resp(400, { error:"Unknown form" });
 
   const f = payload.fields || {};
-  // DIAGNOSTIC (temporary): honeypot short-circuit disabled so we can observe
-  // whether autofill is populating bot-field. Restore before treating as done.
-  // if (f["bot-field"]) return resp(200, { ok:true }); // honeypot
+  if (f["bot-field"]) return resp(200, { ok:true }); // honeypot
 
   const { name, description } = buildTask(payload.form, f);
 
